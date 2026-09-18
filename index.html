@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Squid Design Studio — Branding, Web & Social Design</title>
   <meta name="description" content="Estudio de diseño visual y branding enfocado en identidades orgánicas, sitios web y sistemas gráficos.">
   
+  <!-- Preconnect and Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Overlay de Textura de Grano Gráfico -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
-  <!-- Header -->
-  <header class="navbar">
-    <a href="#hero" class="brand-link">
-      <img src="images/1.png" alt="Squid Design Studio" class="brand-logo dark-logo">
-      <img src="images/2.png" alt="Squid Design Studio" class="brand-logo light-logo">
+  <!-- Header / Navbar -->
+  <header class="navbar" id="main-nav">
+    <a href="#hero" class="brand-link" aria-label="Squid Design Studio Inicio">
+      <img src="assets/images/1.png" alt="Squid Design Studio Logo Oscuro" class="brand-logo dark-logo">
+      <img src="assets/images/2.png" alt="Squid Design Studio Logo Blanco" class="brand-logo light-logo">
       <span class="brand-name">SQUID DESIGN STUDIO</span>
     </a>
     
-    <nav class="nav-links">
+    <nav class="nav-links" id="nav-menu">
       <a href="#manifesto" class="nav-item">Manifiesto</a>
       <a href="#services" class="nav-item">Servicios</a>
       <a href="#process" class="nav-item">Proceso</a>
@@ -32,34 +35,43 @@
       <a href="#about" class="nav-item">El Estudio</a>
       <a href="#contact" class="nav-item btn-nav">Contacto</a>
     </nav>
+
+    <!-- Botón Menú Hamburguesa para Móvil -->
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú de navegación">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-      <img src="images/palmera.png" alt="" class="bg-asset asset-palmera">
-      <img src="images/olas.png" alt="" class="bg-asset asset-olas-hero">
+      <!-- Elementos Decorativos -->
+      <img src="assets/images/palmera.png" alt="" class="bg-asset asset-palmera" loading="lazy">
+      <img src="assets/images/olas.png" alt="" class="bg-asset asset-olas-hero" loading="lazy">
       
-      <div class="hero-content">
+      <div class="hero-content reveal">
         <span class="hero-tag">ESTUDIO INDEPENDIENTE DE DISEÑO — 2026</span>
         <h1 class="hero-title">Identidades que respiran mar, tinta y calma visual.</h1>
         <p class="hero-sub">Branding, arquitectura web y dirección de arte con enfoque editorial y gráfica analógica.</p>
         <div class="hero-actions">
           <a href="#services" class="btn-primary">EXPLORAR SERVICIOS</a>
-          <a href="#showcase" class="btn-secondary">VER PROYECTOS</a>
+          <a href="#showcase" class="btn-secondary">VER PROYECTOS <span class="arrow-icon">↗</span></a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="ink-frame">
-          <img src="images/4.png" alt="Tinta Squid" class="hero-ink-img">
-          <img src="images/2.png" alt="Squid Logo" class="hero-logo-overlay">
+
+      <div class="hero-visual reveal">
+        <div class="ink-frame" style="background-image: url('assets/images/3.png');">
+          <img src="assets/images/4.png" alt="Tinta Orgánica Squid" class="hero-ink-img">
+          <img src="assets/images/2.png" alt="Squid Logo Isotipo" class="hero-logo-overlay">
         </div>
       </div>
     </section>
 
-    <!-- Concepto / Manifiesto -->
+    <!-- Concepto / Manifiesto con Textura Mar Oscura -->
     <section id="manifesto" class="manifesto-section reveal">
-      <img src="images/estrella.png" alt="" class="bg-asset asset-estrella">
+      <img src="assets/images/estrella.png" alt="" class="bg-asset asset-estrella" loading="lazy">
       <div class="manifesto-container">
         <span class="section-number">00 — CONCEPTO</span>
         <h2 class="manifesto-heading">"No creamos plantillas. Construimos universos visuales con alma, rigor y personalidad."</h2>
@@ -69,8 +81,8 @@
 
     <!-- Servicios (Acordeón Interactivo) -->
     <section id="services" class="services-section">
-      <img src="images/concha1.png" alt="" class="bg-asset asset-concha">
-      <div class="section-header">
+      <img src="assets/images/concha1.png" alt="" class="bg-asset asset-concha" loading="lazy">
+      <div class="section-header reveal">
         <span class="section-number">01 — SERVICIOS</span>
         <h2>LO QUE HACEMOS <span class="sub-hint">( Haz clic para desplegar )</span></h2>
       </div>
@@ -78,7 +90,7 @@
       <div class="accordion-container">
         <!-- Servicio 1 -->
         <div class="accordion-item reveal">
-          <button class="accordion-header">
+          <button class="accordion-header" aria-expanded="false">
             <span class="acc-num">01</span>
             <span class="acc-title">Identidad Visual & Branding</span>
             <span class="acc-icon">+</span>
@@ -97,7 +109,7 @@
 
         <!-- Servicio 2 -->
         <div class="accordion-item reveal">
-          <button class="accordion-header">
+          <button class="accordion-header" aria-expanded="false">
             <span class="acc-num">02</span>
             <span class="acc-title">Diseño Web & Experiencias Digitales</span>
             <span class="acc-icon">+</span>
@@ -115,7 +127,7 @@
 
         <!-- Servicio 3 -->
         <div class="accordion-item reveal">
-          <button class="accordion-header">
+          <button class="accordion-header" aria-expanded="false">
             <span class="acc-num">03</span>
             <span class="acc-title">Diseño para Redes Sociales</span>
             <span class="acc-icon">+</span>
@@ -133,10 +145,10 @@
       </div>
     </section>
 
-    <!-- Proceso -->
+    <!-- Proceso Metodológico -->
     <section id="process" class="process-section">
-      <img src="images/limon.png" alt="" class="bg-asset asset-limon">
-      <div class="section-header">
+      <img src="assets/images/limon.png" alt="" class="bg-asset asset-limon" loading="lazy">
+      <div class="section-header reveal">
         <span class="section-number">02 — METODOLOGÍA</span>
         <h2>EL PROCESO CREATIVO</h2>
       </div>
@@ -165,17 +177,17 @@
       </div>
     </section>
 
-    <!-- Showcase / Proyectos Reales -->
+    <!-- Showcase / Proyectos -->
     <section id="showcase" class="showcase-section">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-number">03 — PORTFOLIO</span>
         <h2>PROYECTOS DESTACADOS</h2>
       </div>
 
       <div class="projects-grid">
         <!-- Proyecto 1 -->
-        <a href="https://nailejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
-          <div class="project-img-wrapper">
+        <a href="https://nailejem.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+          <div class="project-img-wrapper" style="background-image: url('assets/images/3.png');">
             <div class="project-overlay">VER SITIO WEB ↗</div>
             <div class="project-badge">WEB DESIGN / BEAUTY</div>
           </div>
@@ -186,8 +198,8 @@
         </a>
 
         <!-- Proyecto 2 -->
-        <a href="https://bouquetejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
-          <div class="project-img-wrapper">
+        <a href="https://bouquetejem.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+          <div class="project-img-wrapper" style="background-image: url('assets/images/3.png');">
             <div class="project-overlay">VER SITIO WEB ↗</div>
             <div class="project-badge">WEB DESIGN / FLORAL</div>
           </div>
@@ -198,8 +210,8 @@
         </a>
 
         <!-- Proyecto 3 -->
-        <a href="https://showroomejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
-          <div class="project-img-wrapper">
+        <a href="https://showroomejem.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-card reveal">
+          <div class="project-img-wrapper" style="background-image: url('assets/images/3.png');">
             <div class="project-overlay">VER SITIO WEB ↗</div>
             <div class="project-badge">WEB DESIGN / SHOWROOM</div>
           </div>
@@ -211,9 +223,9 @@
       </div>
     </section>
 
-    <!-- El Estudio (Desplegable Extenso) -->
+    <!-- El Estudio (Historia Desplegable) -->
     <section id="about" class="about-section">
-      <img src="images/sombrilla.png" alt="" class="bg-asset asset-sombrilla">
+      <img src="assets/images/sombrilla.png" alt="" class="bg-asset asset-sombrilla" loading="lazy">
       <div class="about-container reveal">
         <span class="section-number">04 — EL ESTUDIO</span>
         <h2 class="about-title">Donde la gráfica editorial se encuentra con el océano.</h2>
@@ -232,35 +244,43 @@
       </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Contacto con Formulario Dinámico -->
     <section id="contact" class="contact-section reveal">
-      <img src="images/caballito.png" alt="" class="bg-asset asset-caballito">
+      <img src="assets/images/caballito.png" alt="" class="bg-asset asset-caballito" loading="lazy">
       <div class="contact-container">
         <div class="ink-stamp">
-          <img src="images/4.png" alt="Tinta">
+          <img src="assets/images/4.png" alt="Sello de Tinta Squid">
         </div>
         <span class="section-number">05 — CONTACTO</span>
         <h2 class="contact-title">HABLEMOS DE TU MARCA</h2>
         <p class="contact-sub">¿Tienes un proyecto en mente? Cuéntanos tu idea y creemos juntos su universo visual.</p>
 
-        <form name="contact" method="POST" data-netlify="true" class="contact-form">
+        <!-- Mensaje de Confirmación Interactivo -->
+        <div id="form-success-msg" class="form-feedback hidden">
+          ✔ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+        </div>
+
+        <form name="contact" id="squid-contact-form" method="POST" data-netlify="true" class="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-group">
-            <input type="text" name="name" placeholder="Tu Nombre / Nombre de tu marca" required>
+            <input type="text" id="form-name" name="name" placeholder="Tu Nombre / Nombre de tu marca" required>
           </div>
           <div class="form-group">
-            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            <input type="email" id="form-email" name="email" placeholder="Tu Correo Electrónico" required>
           </div>
           <div class="form-group">
-            <textarea name="message" rows="4" placeholder="Cuéntanos brevemente sobre tu proyecto..." required></textarea>
+            <textarea id="form-message" name="message" rows="4" placeholder="Cuéntanos brevemente sobre tu proyecto..." required></textarea>
           </div>
-          <button type="submit" class="btn-primary btn-submit">ENVIAR MENSAJE</button>
+          <button type="submit" class="btn-primary btn-submit">
+            <span>ENVIAR MENSAJE</span>
+          </button>
         </form>
 
         <div class="direct-contact">
           <p>Escríbenos directamente a:</p>
           <a href="mailto:squidstudio.contacto@gmail.com" class="email-link">squidstudio.contacto@gmail.com</a>
           <div class="social-links">
-            <a href="https://www.instagram.com/squid.designstudio/" target="_blank" rel="noopener">Instagram: @squid.designstudio</a>
+            <a href="https://www.instagram.com/squid.designstudio/" target="_blank" rel="noopener noreferrer">Instagram: @squid.designstudio</a>
           </div>
         </div>
       </div>
@@ -271,7 +291,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-brand">
-        <img src="images/2.png" alt="Squid Logo" class="footer-logo">
+        <img src="assets/images/2.png" alt="Squid Logo Blanco Footer" class="footer-logo">
         <div>
           <span class="brand-name-footer">SQUID DESIGN STUDIO</span>
           <p>Branding, Web & Social Media Design.</p>
@@ -283,6 +303,7 @@
     </div>
   </footer>
 
+  <!-- JS Script File -->
   <script src="script.js"></script>
 </body>
 </html>
