@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Animaciones al hacer Scroll (Intersection Observer)
+  // Garantiza que la página muestre contenido si JS se activa
+  document.body.classList.add('js-enabled');
+
+  // 1. Animaciones al hacer Scroll
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -23,10 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const accordionItem = header.parentElement;
       const accordionContent = accordionItem.querySelector('.accordion-content');
       
-      // Toggle estado activo
       const isActive = accordionItem.classList.contains('active');
 
-      // Cerrar otros abiertos (opcional para mantener orden)
       document.querySelectorAll('.accordion-item').forEach(item => {
         item.classList.remove('active');
         item.querySelector('.accordion-content').style.maxHeight = null;
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Desplegable de Historia del Estudio (Sección About)
+  // 3. Desplegable de Historia del Estudio
   const toggleHistoryBtn = document.getElementById('toggle-history-btn');
   const historyContent = document.getElementById('history-content');
 
@@ -53,7 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleHistoryBtn.querySelector('span').textContent = 'LEER HISTORIA COMPLETA';
       }
     });
-  }
-});
   }
 });
