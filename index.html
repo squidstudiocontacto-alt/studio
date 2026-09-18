@@ -1,572 +1,299 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squid Design Studio - Servicios</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#F9F8F3',
-                        'cream-dark': '#EFEDE4',
-                        ink: '#11161B',
-                        'ink-light': '#1C242C',
-                        ocean: '#1A303A',
-                        sand: '#D8CDBA',
-                        accent: '#2B4855',
-                        coral: '#D96B43',
-                        gold: '#C8A362'
-                    },
-                    fontFamily: {
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #F9F8F3;
-            color: #11161B;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Custom SVG Background Grain Texture Simulation */
-        .bg-paper-texture {
-            background-image: radial-gradient(#11161b 0.5px, transparent 0.5px), radial-gradient(#11161b 0.5px, #F9F8F3 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            opacity: 0.03;
-        }
-
-        .ink-badge {
-            background: #11161B;
-            color: #F9F8F3;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* Accordion transition animations */
-        .accordion-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, padding 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 800px;
-            opacity: 1;
-        }
-
-        /* Float Parallax Animation */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
-        }
-
-        @keyframes floatReverse {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(10px) rotate(-3deg); }
-        }
-
-        .animate-float {
-            animation: floatSlow 6s ease-in-out infinite;
-        }
-
-        .animate-float-reverse {
-            animation: floatReverse 7s ease-in-out infinite;
-        }
-
-        .ink-splash {
-            background: radial-gradient(circle, rgba(17,22,27,0.08) 0%, rgba(249,248,243,0) 70%);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squid Design Studio — Branding, Web & Social Design</title>
+  <meta name="description" content="Estudio de diseño visual y branding enfocado en identidades orgánicas, sitios web y sistemas gráficos.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen relative selection:bg-ink selection:text-cream">
+<body>
 
-    <!-- Paper Texture Overlay -->
-    <div class="fixed inset-0 bg-paper-texture pointer-events-none z-0"></div>
+  <div class="grain-overlay" aria-hidden="true"></div>
 
-    <!-- Navigation Header -->
-    <header class="relative z-20 border-b border-ink/10 bg-cream/90 backdrop-blur-md sticky top-0">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <!-- Squid / Marine Graphic Logo -->
-                <svg class="w-8 h-8 stroke-ink fill-none transition-transform group-hover:scale-110 duration-300" viewBox="0 0 24 24" stroke-width="1.5">
-                    <path d="M12 2C8 2 5 5 5 9c0 3 2 5 3 7l1 3h6l1-3c1-2 3-4 3-7 0-4-3-7-7-7z"/>
-                    <path d="M9 22c0-1 1-2 2-2s2 1 2 2"/>
-                    <path d="M13 22c0-1 1-2 2-2s2 1 2 2"/>
-                    <circle cx="9" cy="8" r="1" fill="currentColor"/>
-                    <circle cx="15" cy="8" r="1" fill="currentColor"/>
-                </svg>
-                <span class="font-semibold text-sm tracking-widest uppercase">Squid Design Studio</span>
-            </a>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="#hero" class="brand-link">
+      <img src="assets/images/1.png" alt="Squid Design Studio" class="brand-logo dark-logo">
+      <img src="assets/images/2.png" alt="Squid Design Studio" class="brand-logo light-logo">
+      <span class="brand-name">SQUID DESIGN STUDIO</span>
+    </a>
+    
+    <button class="menu-toggle" aria-label="Abrir menú" id="mobile-menu-btn">
+      <span></span>
+      <span></span>
+    </button>
 
-            <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-ink/70">
-                <a href="#manifesto" class="hover:text-ink transition-colors">Manifiesto</a>
-                <a href="#servicios" class="text-ink border-b-2 border-ink pb-0.5">Servicios</a>
-                <a href="#proceso" class="hover:text-ink transition-colors">Proceso</a>
-                <a href="#proyectos" class="hover:text-ink transition-colors">Proyectos</a>
-                <a href="#estudio" class="hover:text-ink transition-colors">El Estudio</a>
-            </nav>
+    <nav class="nav-links" id="nav-menu">
+      <a href="#manifesto" class="nav-item">Manifiesto</a>
+      <a href="#services" class="nav-item">Servicios</a>
+      <a href="#process" class="nav-item">Proceso</a>
+      <a href="#showcase" class="nav-item">Proyectos</a>
+      <a href="#about" class="nav-item">El Estudio</a>
+      <a href="#contact" class="nav-item btn-nav">Contacto</a>
+    </nav>
+  </header>
 
-            <!-- Contact Button -->
-            <a href="#contacto" class="border border-ink/40 hover:border-ink px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider hover:bg-ink hover:text-cream transition-all duration-300 shadow-sm">
-                Contacto
-            </a>
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <img src="assets/images/palmera.png" alt="" class="bg-asset asset-palmera">
+      <img src="assets/images/olas.png" alt="" class="bg-asset asset-olas-hero">
+      
+      <div class="hero-content reveal">
+        <span class="hero-tag">ESTUDIO INDEPENDIENTE DE DISEÑO — 2026</span>
+        <h1 class="hero-title">Identidades que respiran mar, tinta y calma visual.</h1>
+        <p class="hero-sub">Branding, arquitectura web y dirección de arte con enfoque editorial y gráfica analógica.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">EXPLORAR SERVICIOS</a>
+          <a href="#showcase" class="btn-secondary">VER PROYECTOS</a>
         </div>
-    </header>
-
-    <main class="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-20">
-
-        <!-- Floating Brand Art Graphics (Concha, Palmera, Limón, Sombrilla, Marine Line Art) -->
-        <div class="absolute top-10 right-10 w-32 h-32 md:w-48 md:h-48 opacity-15 pointer-events-none animate-float z-0">
-            <!-- Concha de Mar Graphic -->
-            <svg viewBox="0 0 100 100" fill="none" stroke="#11161B" stroke-width="1.2">
-                <path d="M50,90 C20,90 10,65 10,45 C10,25 30,10 50,10 C70,10 90,25 90,45 C90,65 80,90 50,90 Z" />
-                <path d="M50,90 L50,10" />
-                <path d="M50,90 L30,15" />
-                <path d="M50,90 L70,15" />
-                <path d="M50,90 L18,30" />
-                <path d="M50,90 L82,30" />
-                <path d="M50,90 L12,50" />
-                <path d="M50,90 L88,50" />
-            </svg>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="ink-frame">
+          <img src="assets/images/4.png" alt="Tinta Squid" class="hero-ink-img">
+          <img src="assets/images/2.png" alt="Squid Logo" class="hero-logo-overlay">
         </div>
+      </div>
+    </section>
 
-        <div class="absolute top-1/3 -left-12 w-40 h-40 opacity-10 pointer-events-none animate-float-reverse z-0">
-            <!-- Palmera Graphic -->
-            <svg viewBox="0 0 100 100" fill="none" stroke="#11161B" stroke-width="1.5">
-                <path d="M50,95 Q45,60 30,30" />
-                <path d="M30,30 Q10,25 5,40" />
-                <path d="M30,30 Q15,10 35,5" />
-                <path d="M30,30 Q50,10 65,20" />
-                <path d="M30,30 Q60,35 70,50" />
-            </svg>
-        </div>
+    <!-- Concepto / Manifiesto -->
+    <section id="manifesto" class="manifesto-section">
+      <img src="assets/images/estrella.png" alt="" class="bg-asset asset-estrella">
+      <div class="manifesto-container reveal">
+        <span class="section-number">00 — CONCEPTO</span>
+        <h2 class="manifesto-heading">"No creamos plantillas. Construimos universos visuales con alma, rigor y personalidad."</h2>
+        <p class="manifesto-text">Squid Design Studio nace de la intersección entre la gráfica editorial, la cultura costera y la nostalgia analógica. Nos alejamos de lo genérico para dar vida a marcas auténticas y memorables.</p>
+      </div>
+    </section>
 
-        <div class="absolute bottom-20 right-5 w-36 h-36 opacity-15 pointer-events-none animate-float z-0">
-            <!-- Limón Graphic -->
-            <svg viewBox="0 0 100 100" fill="none" stroke="#11161B" stroke-width="1.5">
-                <circle cx="50" cy="50" r="38" />
-                <circle cx="50" cy="50" r="32" stroke-dasharray="3,3" />
-                <line x1="50" y1="12" x2="50" y2="88" />
-                <line x1="12" y1="50" x2="88" y2="50" />
-                <line x1="23" y1="23" x2="77" y2="77" />
-                <line x1="23" y1="77" x2="77" y2="23" />
-            </svg>
-        </div>
+    <!-- Servicios (Acordeón Interactivo) -->
+    <section id="services" class="services-section">
+      <img src="assets/images/concha1.png" alt="" class="bg-asset asset-concha">
+      <div class="section-header reveal">
+        <span class="section-number">01 — SERVICIOS</span>
+        <h2>LO QUE HACEMOS <span class="sub-hint">( Haz clic para desplegar )</span></h2>
+      </div>
 
-        <!-- Section Badge Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="text-xs font-mono tracking-widest text-ink/50 uppercase font-semibold">01 — SERVICIOS</span>
-            <div class="h-px bg-ink/15 flex-grow"></div>
-            <div class="flex gap-2">
-                <span class="inline-block w-2 h-2 rounded-full bg-coral"></span>
-                <span class="inline-block w-2 h-2 rounded-full bg-accent"></span>
-                <span class="inline-block w-2 h-2 rounded-full bg-gold"></span>
+      <div class="accordion-container reveal">
+        <!-- Servicio 1 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="acc-num">01</span>
+            <span class="acc-title">Identidad Visual & Branding</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="acc-desc">Desarrollo integral de identidad de marca desde los cimientos. Definimos la dirección creativa y el sistema gráfico que hará destacar tu emprendimiento.</p>
+              <ul class="acc-list">
+                <li>Estrategia y Dirección Visual</li>
+                <li>Diseño de Logotipo & Iso/Monogramas</li>
+                <li>Sistema Cromático & Paletas de Tinta</li>
+                <li>Curaduría y Jerarquía Tipográfica</li>
+                <li>Manual de Aplicaciones y Recursos Gráficos</li>
+              </ul>
             </div>
-        </div>
-
-        <!-- Main Section Title -->
-        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 relative">
-            <div>
-                <h1 class="font-serif text-5xl md:text-7xl font-normal tracking-tight text-ink">
-                    LO QUE HACEMOS
-                    <span class="font-sans italic text-lg md:text-2xl text-ink/60 block md:inline md:ml-4 font-light">
-                        (Haz clic en cualquier tarjeta para desplegar detalles)
-                    </span>
-                </h1>
-                <p class="text-ink/70 mt-3 max-w-2xl text-sm md:text-base leading-relaxed">
-                    Estrategias de marca sofisticadas, sistemas de identidad con carácter costero-editorial y diseño digital de alto impacto para emprendimientos con visión.
-                </p>
-            </div>
-
-            <!-- Visual Legend / Status Indicator -->
-            <div class="flex items-center gap-2 bg-cream-dark px-4 py-2 rounded-full border border-ink/10 text-xs font-medium text-ink/70 self-start md:self-end">
-                <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-coral"></i>
-                <span>Interacción 100% visible & legible</span>
-            </div>
+          </div>
         </div>
 
-        <!-- Accordion Container -->
-        <div class="space-y-6 relative z-10" id="accordion-container">
-
-            <!-- Item 1: Identidad Visual & Branding -->
-            <div class="accordion-item border border-ink/15 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                
-                <!-- Accordion Header Bar -->
-                <div class="p-6 md:p-8 flex items-center justify-between gap-4 bg-white hover:bg-cream-dark/40 transition-colors">
-                    <div class="flex items-center gap-4 md:gap-6">
-                        <span class="font-serif text-2xl md:text-3xl text-coral font-bold">01</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-ink tracking-tight">Identidad Visual & Branding</h2>
-                            <p class="text-xs md:text-sm text-ink/60 mt-0.5">Construcción integral de marca desde los cimientos estratégicos.</p>
-                        </div>
-                    </div>
-
-                    <!-- HIGH CONTRAST CLEAR TOGGLE BUTTON -->
-                    <div class="toggle-btn-wrapper flex items-center gap-3">
-                        <span class="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-ink/60 group-hover:text-ink status-text">Ver detalles</span>
-                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-cream flex items-center justify-center transition-transform duration-300 shadow-md transform group-hover:scale-105 toggle-icon">
-                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Accordion Content (Collapsible) -->
-                <div class="accordion-content border-t border-ink/10 bg-cream/40">
-                    <div class="p-6 md:p-10 space-y-8">
-
-                        <!-- Main Paragraph -->
-                        <div class="max-w-3xl">
-                            <p class="text-base md:text-lg text-ink/80 leading-relaxed font-normal">
-                                Desarrollo integral de identidad de marca desde los cimientos. Definimos la dirección creativa y el sistema gráfico que hará destacar tu emprendimiento con autenticidad y elegancia.
-                            </p>
-                        </div>
-
-                        <!-- Graphical Asset Showcase Row -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
-                            <!-- Visual Badge 1 -->
-                            <div class="bg-white p-5 rounded-xl border border-ink/10 flex items-center gap-4 shadow-sm">
-                                <div class="w-12 h-12 rounded-lg bg-coral/10 text-coral flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="compass" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-ink">Dirección Creativa</h4>
-                                    <p class="text-xs text-ink/60">Moodboards y concepto visual único</p>
-                                </div>
-                            </div>
-
-                            <!-- Visual Badge 2 -->
-                            <div class="bg-white p-5 rounded-xl border border-ink/10 flex items-center gap-4 shadow-sm">
-                                <div class="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="palette" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-ink">Sistema de Tinta</h4>
-                                    <p class="text-xs text-ink/60">Paleta cromática y jerarquías</p>
-                                </div>
-                            </div>
-
-                            <!-- Visual Badge 3 -->
-                            <div class="bg-white p-5 rounded-xl border border-ink/10 flex items-center gap-4 shadow-sm">
-                                <div class="w-12 h-12 rounded-lg bg-gold/10 text-gold flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="book-open" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-sm text-ink">Brandbook Studio</h4>
-                                    <p class="text-xs text-ink/60">Manual de aplicación impreso & digital</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sub-services Tag List -->
-                        <div class="pt-4 border-t border-ink/10">
-                            <span class="text-xs font-mono uppercase tracking-widest text-ink/50 block mb-4">Entregables incluidos:</span>
-                            <div class="flex flex-wrap gap-2 md:gap-3">
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
-                                    Estrategia y Dirección Visual
-                                </span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
-                                    Diseño de Logotipo & Iso/Monogramas
-                                </span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
-                                    Sistema Cromático & Paletas de Tinta
-                                </span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
-                                    Curaduría y Jerarquía Tipográfica
-                                </span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
-                                    Manual de Aplicaciones y Recursos Gráficos
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+        <!-- Servicio 2 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="acc-num">02</span>
+            <span class="acc-title">Diseño Web & Experiencias Digitales</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="acc-desc">Diseño y desarrollo de sitios web pensados como piezas editoriales interactivas. Enfoque 100% visual, optimizado para transmitir la verdadera personalidad de tu proyecto.</p>
+              <ul class="acc-list">
+                <li>Diseño UI/UX Personalizado</li>
+                <li>Landing Pages & Web-Apps para Emprendimientos</li>
+                <li>Catálogos & Experiencias de Compra a Medida</li>
+                <li>Adaptación Responsive & Optimización Netlify</li>
+              </ul>
             </div>
-
-            <!-- Item 2: Diseño Web & Experiencia Digital -->
-            <div class="accordion-item border border-ink/15 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                
-                <!-- Accordion Header Bar -->
-                <div class="p-6 md:p-8 flex items-center justify-between gap-4 bg-white hover:bg-cream-dark/40 transition-colors">
-                    <div class="flex items-center gap-4 md:gap-6">
-                        <span class="font-serif text-2xl md:text-3xl text-accent font-bold">02</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-ink tracking-tight">Diseño Web UI/UX & Experiencia Digital</h2>
-                            <p class="text-xs md:text-sm text-ink/60 mt-0.5">Sitios web a medida con estética editorial y maquetación interactiva.</p>
-                        </div>
-                    </div>
-
-                    <!-- HIGH CONTRAST CLEAR TOGGLE BUTTON -->
-                    <div class="toggle-btn-wrapper flex items-center gap-3">
-                        <span class="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-ink/60 status-text">Ver detalles</span>
-                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-cream flex items-center justify-center transition-transform duration-300 shadow-md toggle-icon">
-                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Accordion Content -->
-                <div class="accordion-content border-t border-ink/10 bg-cream/40">
-                    <div class="p-6 md:p-10 space-y-8">
-                        <div class="max-w-3xl">
-                            <p class="text-base md:text-lg text-ink/80 leading-relaxed font-normal">
-                                Diseñamos y desarrollamos plataformas digitales únicas donde cada interacción se siente fluida y pulida. Desde e-commerce boutique hasta sitios institucionales con animaciones personalizadas.
-                            </p>
-                        </div>
-
-                        <!-- Graphical Showcase Cards -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-                            <div class="bg-ink text-cream p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-44">
-                                <div class="relative z-10">
-                                    <span class="text-xs font-mono text-gold uppercase tracking-widest">Digital Craft</span>
-                                    <h4 class="font-serif text-2xl font-normal mt-1">Landing Pages & E-Commerce</h4>
-                                </div>
-                                <p class="text-xs text-cream/70 relative z-10">Optimizados para velocidad, accesibilidad y máxima conversión estético-comercial.</p>
-                                <!-- Decorative SVG Wave Line -->
-                                <svg class="absolute bottom-0 right-0 opacity-20 w-32 h-32 text-cream" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                                    <path d="M0,50 Q25,30 50,50 T100,50" stroke-width="2"/>
-                                    <path d="M0,60 Q25,40 50,60 T100,60" stroke-width="2"/>
-                                </svg>
-                            </div>
-
-                            <div class="bg-accent text-cream p-6 rounded-xl relative overflow-hidden flex flex-col justify-between h-44">
-                                <div class="relative z-10">
-                                    <span class="text-xs font-mono text-sand uppercase tracking-widest">Frontend & Code</span>
-                                    <h4 class="font-serif text-2xl font-normal mt-1">Animaciones & Microinteracciones</h4>
-                                </div>
-                                <p class="text-xs text-cream/80 relative z-10">Efectos suaves de scroll, componentes reactivos y experiencias envolventes.</p>
-                                <i data-lucide="sparkles" class="absolute bottom-4 right-4 w-12 h-12 opacity-20 text-cream"></i>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-ink/10">
-                            <span class="text-xs font-mono uppercase tracking-widest text-ink/50 block mb-4">Módulos web:</span>
-                            <div class="flex flex-wrap gap-2 md:gap-3">
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Prototipado UX/UI en Figma</span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Desarrollo Web Responsive</span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">SEO Orgánico & Performance</span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Integración de Tiendas Online</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 3: Curaduría Editorial & Recursos Gráficos -->
-            <div class="accordion-item border border-ink/15 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden cursor-pointer" onclick="toggleAccordion(this)">
-                
-                <!-- Accordion Header Bar -->
-                <div class="p-6 md:p-8 flex items-center justify-between gap-4 bg-white hover:bg-cream-dark/40 transition-colors">
-                    <div class="flex items-center gap-4 md:gap-6">
-                        <span class="font-serif text-2xl md:text-3xl text-gold font-bold">03</span>
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-ink tracking-tight">Curaduría Editorial & Ilustración Orgánica</h2>
-                            <p class="text-xs md:text-sm text-ink/60 mt-0.5">Ilustraciones botánicas y marinas, packaging y piezas impresas.</p>
-                        </div>
-                    </div>
-
-                    <!-- HIGH CONTRAST CLEAR TOGGLE BUTTON -->
-                    <div class="toggle-btn-wrapper flex items-center gap-3">
-                        <span class="hidden sm:inline text-xs font-semibold uppercase tracking-wider text-ink/60 status-text">Ver detalles</span>
-                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-cream flex items-center justify-center transition-transform duration-300 shadow-md toggle-icon">
-                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Accordion Content -->
-                <div class="accordion-content border-t border-ink/10 bg-cream/40">
-                    <div class="p-6 md:p-10 space-y-8">
-                        <div class="max-w-3xl">
-                            <p class="text-base md:text-lg text-ink/80 leading-relaxed font-normal">
-                                Creamos piezas gráficas táctiles y colecciones de ilustración a medida (conchas, caballitos de mar, elementos botánicos y patrones de tinta) para enriquecer el universo gráfico de tu marca.
-                            </p>
-                        </div>
-
-                        <!-- Graphical Elements Grid -->
-                        <div class="p-6 bg-white rounded-xl border border-ink/10 flex flex-wrap justify-around items-center gap-6 text-center">
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 rounded-full bg-cream flex items-center justify-center border border-ink/10">
-                                    <!-- Caballito de mar icon -->
-                                    <svg class="w-8 h-8 stroke-ink fill-none" viewBox="0 0 24 24">
-                                        <path d="M12 2a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-1a3 3 0 0 0-3 3v2" stroke-width="1.5"/>
-                                    </svg>
-                                </div>
-                                <span class="text-xs font-bold text-ink">Caballito de Mar</span>
-                            </div>
-
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 rounded-full bg-cream flex items-center justify-center border border-ink/10">
-                                    <!-- Sombrilla / Parasol icon -->
-                                    <svg class="w-8 h-8 stroke-ink fill-none" viewBox="0 0 24 24">
-                                        <path d="M12 2v20M4 12a8 8 0 0 1 16 0H4z" stroke-width="1.5"/>
-                                    </svg>
-                                </div>
-                                <span class="text-xs font-bold text-ink">Sombrilla & Sol</span>
-                            </div>
-
-                            <div class="flex flex-col items-center gap-2">
-                                <div class="w-16 h-16 rounded-full bg-cream flex items-center justify-center border border-ink/10">
-                                    <!-- Textura Tinta -->
-                                    <svg class="w-8 h-8 stroke-ink fill-none" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="8" stroke-dasharray="2,2" stroke-width="1.5"/>
-                                        <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                    </svg>
-                                </div>
-                                <span class="text-xs font-bold text-ink">Manchas de Tinta</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-ink/10">
-                            <span class="text-xs font-mono uppercase tracking-widest text-ink/50 block mb-4">Aplicaciones editoriales:</span>
-                            <div class="flex flex-wrap gap-2 md:gap-3">
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Packaging & Papelería Fina</span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Ilustraciones Vectoriales Personalizadas</span>
-                                <span class="px-4 py-2 bg-ink text-cream text-xs font-medium rounded-lg">Catalogación y Libros de Marca</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
 
-        <!-- Interactive Brand Experience Showcase Box -->
-        <div class="mt-16 bg-ink text-cream rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl border border-ink">
-            <!-- Background Decorative Texture -->
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            
-            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-coral/20 text-coral text-xs font-mono uppercase tracking-widest mb-4">
-                        Atmósfera Gráfica Squid
-                    </span>
-                    <h3 class="font-serif text-3xl md:text-5xl font-normal leading-tight">
-                        Elegancia orgánica con presencia marina.
-                    </h3>
-                    <p class="text-cream/70 mt-4 text-sm md:text-base leading-relaxed">
-                        Combinamos tonos tinta profunda, texturas de arena suave y trazos editoriales para que la presencia de tu marca no pase desapercibida.
-                    </p>
-                </div>
-
-                <!-- Interactive Graphics Board -->
-                <div class="bg-cream/10 backdrop-blur-sm p-6 rounded-2xl border border-cream/10 flex flex-col gap-4">
-                    <div class="flex justify-between items-center border-b border-cream/10 pb-3">
-                        <span class="text-xs font-mono text-sand">ACTIVOS DE MARCA DE MUESTRA</span>
-                        <span class="text-xs text-cream/50">Paleta Océano & Tinta</span>
-                    </div>
-
-                    <!-- Color Swatches -->
-                    <div class="grid grid-cols-5 gap-2">
-                        <div class="h-12 rounded-lg bg-cream flex items-end p-1 text-[10px] font-mono text-ink font-bold">#F9F8F3</div>
-                        <div class="h-12 rounded-lg bg-ink-light flex items-end p-1 text-[10px] font-mono text-cream font-bold border border-cream/20">#1C242C</div>
-                        <div class="h-12 rounded-lg bg-accent flex items-end p-1 text-[10px] font-mono text-cream font-bold">#2B4855</div>
-                        <div class="h-12 rounded-lg bg-coral flex items-end p-1 text-[10px] font-mono text-cream font-bold">#D96B43</div>
-                        <div class="h-12 rounded-lg bg-gold flex items-end p-1 text-[10px] font-mono text-ink font-bold">#C8A362</div>
-                    </div>
-
-                    <div class="flex items-center justify-between text-xs text-cream/80 pt-2">
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-coral"></i>
-                            Alta legibilidad garantizada
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i>
-                            Botones de acción clara
-                        </span>
-                    </div>
-                </div>
+        <!-- Servicio 3 -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span class="acc-num">03</span>
+            <span class="acc-title">Diseño para Redes Sociales</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-inner">
+              <p class="acc-desc">Sistemas gráficos pensados para llevar la estética de tu marca al entorno digital cotidiano con coherencia, elegancia y distinción.</p>
+              <ul class="acc-list">
+                <li>Plantillas Editables (Feed & Stories)</li>
+                <li>Carruseles Editoriales de Alto Impacto</li>
+                <li>Diseño de Highlights y Portadas</li>
+                <li>Línea Gráfica y Guía de Contenido Visual</li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proceso -->
+    <section id="process" class="process-section">
+      <img src="assets/images/limon.png" alt="" class="bg-asset asset-limon">
+      <div class="section-header reveal">
+        <span class="section-number">02 — METODOLOGÍA</span>
+        <h2>EL PROCESO CREATIVO</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <span class="p-num">01</span>
+          <h4>Inmersión</h4>
+          <p>Investigamos el universo de tu marca, referencias analógicas, texturas y valores esenciales.</p>
+        </div>
+        <div class="process-card reveal">
+          <span class="p-num">02</span>
+          <h4>Concepto</h4>
+          <p>Definimos la dirección tipográfica, paleta de colores de tierra y mar, y la narrativa visual.</p>
+        </div>
+        <div class="process-card reveal">
+          <span class="p-num">03</span>
+          <h4>Diseño</h4>
+          <p>Construimos el sistema gráfico, las piezas web y los componentes interactivos con precisión.</p>
+        </div>
+        <div class="process-card reveal">
+          <span class="p-num">04</span>
+          <h4>Entrega</h4>
+          <p>Desplegamos la plataforma y entregamos todos los archivos listos para su uso profesional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase / Proyectos Reales -->
+    <section id="showcase" class="showcase-section">
+      <div class="section-header reveal">
+        <span class="section-number">03 — PORTFOLIO</span>
+        <h2>PROYECTOS DESTACADOS</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Proyecto 1 -->
+        <a href="https://nailejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / BEAUTY</div>
+          </div>
+          <div class="project-info">
+            <h3>Aura Nails</h3>
+            <p>Plataforma interactiva para estudio de uñas. Estética pop y juvenil con catálogo de uñas press-on, reserva de turnos y lista de precios con cálculo dinámico.</p>
+          </div>
+        </a>
+
+        <!-- Proyecto 2 -->
+        <a href="https://bouquetejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / FLORAL</div>
+          </div>
+          <div class="project-info">
+            <h3>Bouquet Atelier</h3>
+            <p>Experiencia de diseño floral personalizada. Un concepto sofisticado y femenino donde el cliente arma su propio ramo eligiendo flores, envoltorios y tonalidades.</p>
+          </div>
+        </a>
+
+        <!-- Proyecto 3 -->
+        <a href="https://showroomejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / SHOWROOM</div>
+          </div>
+          <div class="project-info">
+            <h3>Maison Showroom</h3>
+            <p>Tienda digital sobria y de alta gama para carteras de diseño. Enfoque editorial centrado en fotografía de producto, variantes de color y distinción visual.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- El Estudio -->
+    <section id="about" class="about-section">
+      <img src="assets/images/sombrilla.png" alt="" class="bg-asset asset-sombrilla">
+      <div class="about-container reveal">
+        <span class="section-number">04 — EL ESTUDIO</span>
+        <h2 class="about-title">Donde la gráfica editorial se encuentra con el océano.</h2>
+        
+        <p class="about-lead">Squid Design Studio es un espacio independiente de diseño visual enfocado en crear identidades perdurables para proyectos con alma.</p>
+
+        <div id="history-content" class="history-expandable">
+          <p>Nuestra visión se nutre de la calidez de la arena, la profundidad del azul marino y la fuerza expresiva de la tinta orgánica. Nos alejamos de las modas pasajeras del marketing automatizado para volver a la esencia del diseño gráfico: composición, espacio blanco, equilibrio tipográfico y textura.</p>
+          <p>Cada marca que pasa por nuestro estudio es abordada como un objeto editorial único. Creemos en los proyectos que se toman el tiempo de cuidar sus detalles, que buscan comunicar con sutileza pero con convicción, y que entienden la identidad visual no como un simple logo, sino como una atmósfera completa.</p>
+          <p>Desde nuestro espacio de trabajo, diseñamos experiencias web y sistemas gráficos visualmente estimulantes, pensados para conectar de forma honesta con las personas que valoran la estética, el diseño independiente y la sofisticación contemporánea.</p>
         </div>
 
-    </main>
+        <button id="toggle-history-btn" class="btn-history">
+          <span>LEER HISTORIA COMPLETA</span>
+        </button>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-ink/10 bg-cream-dark/50 mt-20 py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-ink/60">
-            <div class="flex items-center gap-2">
-                <span class="font-bold text-ink">SQUID DESIGN STUDIO</span>
-                <span>© 2026 Todos los derechos reservados.</span>
-            </div>
-            <div class="flex gap-6 font-medium">
-                <a href="#" class="hover:text-ink transition-colors">Instagram</a>
-                <a href="#" class="hover:text-ink transition-colors">Behance</a>
-                <a href="#" class="hover:text-ink transition-colors">LinkedIn</a>
-            </div>
+    <!-- Contacto -->
+    <section id="contact" class="contact-section">
+      <img src="assets/images/caballito.png" alt="" class="bg-asset asset-caballito">
+      <div class="contact-container reveal">
+        <div class="ink-stamp">
+          <img src="assets/images/4.png" alt="Tinta">
         </div>
-    </footer>
+        <span class="section-number">05 — CONTACTO</span>
+        <h2 class="contact-title">HABLEMOS DE TU MARCA</h2>
+        <p class="contact-sub">¿Tienes un proyecto en mente? Cuéntanos tu idea y creemos juntos su universo visual.</p>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        <form name="contact" method="POST" data-netlify="true" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Tu Nombre / Nombre de tu marca" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" placeholder="Cuéntanos brevemente sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-submit">ENVIAR MENSAJE</button>
+        </form>
 
-        // Accordion Toggle Logic
-        function toggleAccordion(element) {
-            const accordionItem = element;
-            const isOpen = accordionItem.classList.contains('active');
-            const allItems = document.querySelectorAll('.accordion-item');
+        <div class="direct-contact">
+          <p>Escríbenos directamente a:</p>
+          <a href="mailto:squidstudio.contacto@gmail.com" class="email-link">squidstudio.contacto@gmail.com</a>
+          <div class="social-links">
+            <a href="https://www.instagram.com/squid.designstudio/" target="_blank" rel="noopener">Instagram: @squid.designstudio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            // Close all items first for clean single-accordion feel
-            allItems.forEach(item => {
-                item.classList.remove('active');
-                const icon = item.querySelector('.toggle-icon i');
-                const statusText = item.querySelector('.status-text');
-                
-                if (icon) {
-                    icon.style.transform = 'rotate(0deg)';
-                }
-                if (statusText) {
-                    statusText.textContent = 'Ver detalles';
-                }
-            });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="assets/images/2.png" alt="Squid Logo" class="footer-logo">
+        <div>
+          <span class="brand-name-footer">SQUID DESIGN STUDIO</span>
+          <p>Branding, Web & Social Media Design.</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; 2026 Squid Design Studio. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
-            // If it wasn't open before, open it now
-            if (!isOpen) {
-                accordionItem.classList.add('active');
-                const icon = accordionItem.querySelector('.toggle-icon i');
-                const statusText = accordionItem.querySelector('.status-text');
-                
-                if (icon) {
-                    icon.style.transform = 'rotate(180deg)';
-                }
-                if (statusText) {
-                    statusText.textContent = 'Cerrar';
-                }
-            }
-        }
-
-        // Auto open the first item on load for immediate preview of content
-        document.addEventListener('DOMContentLoaded', () => {
-            const firstItem = document.querySelector('.accordion-item');
-            if (firstItem) {
-                toggleAccordion(firstItem);
-            }
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
