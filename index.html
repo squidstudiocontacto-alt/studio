@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Squid Design Studio — Branding, Web & Social Design</title>
-  <meta name="description" content="Estudio de diseño visual especializado en identidad de marca, sitios web y sistemas para redes sociales.">
-  <meta property="og:title" content="Squid Design Studio">
-  <meta property="og:description" content="Diseño gráfico, branding, web y sistemas visuales contemporáneos.">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Estudio de diseño visual y branding enfocado en identidades orgánicas, sitios web y sistemas gráficos.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,202 +16,240 @@
 
   <div class="grain-overlay" aria-hidden="true"></div>
 
+  <!-- Header -->
   <header class="navbar">
-    <div class="logo-container">
-      <a href="#hero" class="brand-link">
-        <svg class="squid-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 5C30 5 15 25 15 45C15 60 25 75 35 85L25 95H35L45 85L50 95L55 85L65 95H75L65 85C75 75 85 60 85 45C85 25 70 5 50 5Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="40" cy="35" r="4" fill="currentColor"/>
-          <circle cx="60" cy="35" r="4" fill="currentColor"/>
-        </svg>
-        <span class="brand-name">SQUID DESIGN STUDIO</span>
-      </a>
-    </div>
+    <a href="#hero" class="brand-link">
+      <img src="assets/images/1.png" alt="Squid Design Studio" class="brand-logo dark-logo">
+      <img src="assets/images/2.png" alt="Squid Design Studio" class="brand-logo light-logo">
+      <span class="brand-name">SQUID DESIGN STUDIO</span>
+    </a>
     
     <nav class="nav-links">
       <a href="#manifesto" class="nav-item">Manifiesto</a>
       <a href="#services" class="nav-item">Servicios</a>
       <a href="#process" class="nav-item">Proceso</a>
       <a href="#showcase" class="nav-item">Proyectos</a>
-      <a href="#about" class="nav-item">Estudio</a>
+      <a href="#about" class="nav-item">El Estudio</a>
       <a href="#contact" class="nav-item btn-nav">Contacto</a>
     </nav>
-
-    <button class="menu-toggle" aria-label="Abrir Menú">
-      <span></span>
-      <span></span>
-    </button>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="hero-content">
         <span class="hero-tag">ESTUDIO INDEPENDIENTE DE DISEÑO — 2026</span>
         <h1 class="hero-title">Identidades que respiran mar, tinta y calma visual.</h1>
-        <p class="hero-sub">Diseño editorial, desarrollo branding y piezas digitales con un enfoque orgánico y contemporáneo.</p>
+        <p class="hero-sub">Branding, arquitectura web y dirección de arte con enfoque editorial y gráfica analógica.</p>
         <div class="hero-actions">
           <a href="#services" class="btn-primary">EXPLORAR SERVICIOS</a>
-          <a href="#contact" class="btn-secondary">HABLEMOS DE TU MARCA</a>
+          <a href="#showcase" class="btn-secondary">VER PROYECTOS</a>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="water-mask">
-          <div class="ink-blob"></div>
+        <div class="ink-frame">
+          <img src="assets/images/4.png" alt="Tinta Squid" class="hero-ink-img">
+          <img src="assets/images/2.png" alt="Squid Logo" class="hero-logo-overlay">
         </div>
       </div>
     </section>
 
+    <!-- Concepto / Manifiesto -->
     <section id="manifesto" class="manifesto-section reveal">
       <div class="manifesto-container">
         <span class="section-number">00 — CONCEPTO</span>
         <h2 class="manifesto-heading">"No creamos plantillas. Construimos universos visuales con alma, rigor y personalidad."</h2>
-        <p class="manifesto-text">Squid Design Studio nace de la intersección entre la gráfica editorial, la cultura costera del Mediterráneo y la nostalgia analógica de los noventa. Nos alejamos de lo genérico para ofrecer identidades únicas e inolvidables.</p>
+        <p class="manifesto-text">Squid Design Studio nace de la intersección entre la gráfica editorial, la cultura costera y la nostalgia analógica. Nos alejamos de lo genérico para dar vida a marcas auténticas y memorables.</p>
       </div>
     </section>
 
+    <!-- Servicios (Acordeón Interactivo) -->
     <section id="services" class="services-section">
       <div class="section-header">
         <span class="section-number">01 — SERVICIOS</span>
-        <h2>LO QUE HACEMOS</h2>
+        <h2>LO QUE HACEMOS <span class="sub-hint">( Haz clic para desplegar )</span></h2>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <div class="service-num">01</div>
-          <h3 class="service-title">Identidad Visual</h3>
-          <p class="service-desc">Construcción integral de marca. Logotipos, sistemas cromáticos, selección tipográfica, dirección de arte y manual de aplicaciones visuales.</p>
-          <ul class="service-tags">
-            <li>Branding</li>
-            <li>Logotipo</li>
-            <li>Guía de Estilo</li>
-            <li>Recursos Gráficos</li>
-          </ul>
-        </article>
+      <div class="accordion-container">
+        <!-- Servicio 1 -->
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            <span class="acc-num">01</span>
+            <span class="acc-title">Identidad Visual & Branding</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="acc-desc">Desarrollo integral de identidad de marca desde los cimientos. Definimos la dirección creativa y el sistema gráfico que hará destacar tu emprendimiento.</p>
+            <ul class="acc-list">
+              <li>Estrategia y Dirección Visual</li>
+              <li>Diseño de Logotipo & Iso/Monogramas</li>
+              <li>Sistema Cromático & Paletas de Tinta</li>
+              <li>Curaduría y Jerarquía Tipográfica</li>
+              <li>Manual de Aplicaciones y Recursos Gráficos</li>
+            </ul>
+          </div>
+        </div>
 
-        <article class="service-card reveal">
-          <div class="service-num">02</div>
-          <h3 class="service-title">Diseño Web</h3>
-          <p class="service-desc">Sitios web a medida orientados al diseño, la experiencia de usuario y la coherencia de marca. Experiencias digitales limpias e intuitivas.</p>
-          <ul class="service-tags">
-            <li>UI/UX Design</li>
-            <li>Websites</li>
-            <li>Landing Pages</li>
-            <li>Dirección Digital</li>
-          </ul>
-        </article>
+        <!-- Servicio 2 -->
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            <span class="acc-num">02</span>
+            <span class="acc-title">Diseño Web & Experiencias Digitales</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="acc-desc">Diseño y desarrollo de sitios web pensados como piezas editoriales interactivas. Enfoque 100% visual, optimizado para transmitir la verdadera personalidad de tu proyecto.</p>
+            <ul class="acc-list">
+              <li>Diseño UI/UX Personalizado</li>
+              <li>Landing Pages & Web-Apps para Emprendimientos</li>
+              <li>Catálogos & Experiencias de Compra a Medida</li>
+              <li>Adaptación Responsive & Optimización Netlify</li>
+            </ul>
+          </div>
+        </div>
 
-        <article class="service-card reveal">
-          <div class="service-num">03</div>
-          <h3 class="service-title">Redes Sociales</h3>
-          <p class="service-desc">Contenido visual estratégico y de alto valor editorial para canales digitales. Sistemas gráficos que elevan la presencia de tu proyecto.</p>
-          <ul class="service-tags">
-            <li>Templates</li>
-            <li>Feed & Stories</li>
-            <li>Carruseles</li>
-            <li>Línea Gráfica</li>
-          </ul>
-        </article>
+        <!-- Servicio 3 -->
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            <span class="acc-num">03</span>
+            <span class="acc-title">Diseño para Redes Sociales</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p class="acc-desc">Sistemas gráficos pensados para llevar la estética de tu marca al entorno digital cotidiano con coherencia, elegancia y distinción.</p>
+            <ul class="acc-list">
+              <li>Plantillas Editables (Feed & Stories)</li>
+              <li>Carruseles Editoriales de Alto Impacto</li>
+              <li>Diseño de Highlights y Portadas</li>
+              <li>Línea Gráfica y Guía de Contenido Visual</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Proceso -->
     <section id="process" class="process-section">
       <div class="section-header">
         <span class="section-number">02 — METODOLOGÍA</span>
-        <h2>EL PROCESO</h2>
+        <h2>EL PROCESO CREATIVO</h2>
       </div>
 
-      <div class="process-list">
-        <div class="process-step reveal">
-          <span class="step-code">01</span>
-          <h4>Inmersión & Descubrimiento</h4>
-          <p>Analizamos el contexto, la filosofía del proyecto y definimos las bases del universo visual.</p>
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <span class="p-num">01</span>
+          <h4>Inmersión</h4>
+          <p>Investigamos el universo de tu marca, referencias analógicas, texturas y valores esenciales.</p>
         </div>
-        <div class="process-step reveal">
-          <span class="step-code">02</span>
-          <h4>Concepto Editorial</h4>
-          <p>Exploramos composiciones, mapas tipográficos, texturas de tinta y referencias analógicas.</p>
+        <div class="process-card reveal">
+          <span class="p-num">02</span>
+          <h4>Concepto</h4>
+          <p>Definimos la dirección tipográfica, paleta de colores de tierra y mar, y la narrativa visual.</p>
         </div>
-        <div class="process-step reveal">
-          <span class="step-code">03</span>
-          <h4>Diseño & Sistema</h4>
-          <p>Desarrollamos el sistema gráfico completo garantizando solidez visual y funcionalidad.</p>
+        <div class="process-card reveal">
+          <span class="p-num">03</span>
+          <h4>Diseño</h4>
+          <p>Construimos el sistema gráfico, las piezas web y los componentes interactivos con precisión.</p>
         </div>
-        <div class="process-step reveal">
-          <span class="step-code">04</span>
-          <h4>Aplicación & Entrega</h4>
-          <p>Exportamos todos los elementos listos para su implementación digital o impresa.</p>
+        <div class="process-card reveal">
+          <span class="p-num">04</span>
+          <h4>Entrega</h4>
+          <p>Desplegamos la plataforma y entregamos todos los archivos listos para su uso profesional.</p>
         </div>
       </div>
     </section>
 
+    <!-- Showcase / Proyectos Reales -->
     <section id="showcase" class="showcase-section">
       <div class="section-header">
-        <span class="section-number">03 — PROYECTOS</span>
+        <span class="section-number">03 — PORTFOLIO</span>
         <h2>PROYECTOS DESTACADOS</h2>
       </div>
 
-      <div class="portfolio-grid">
-        <div class="portfolio-item reveal">
-          <div class="item-image-placeholder">
-            <span>PROYECTO 01 — BRANDING</span>
+      <div class="projects-grid">
+        <!-- Proyecto 1 -->
+        <a href="https://nailejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / BEAUTY</div>
           </div>
-          <div class="item-info">
-            <h3>Identidad Marítima</h3>
-            <span class="item-cat">Identidad Visual / 2026</span>
+          <div class="project-info">
+            <h3>Aura Nails</h3>
+            <p>Plataforma interactiva para estudio de uñas. Estética pop y juvenil con catálogo de uñas press-on, reserva de turnos y lista de precios con cálculo dinámico.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="portfolio-item reveal">
-          <div class="item-image-placeholder">
-            <span>PROYECTO 02 — WEB DESIGN</span>
+        <!-- Proyecto 2 -->
+        <a href="https://bouquetejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / FLORAL</div>
           </div>
-          <div class="item-info">
-            <h3>Editorial Atelier</h3>
-            <span class="item-cat">Diseño Web / 2026</span>
+          <div class="project-info">
+            <h3>Bouquet Atelier</h3>
+            <p>Experiencia de diseño floral personalizada. Un concepto sofisticado y femenino donde el cliente arma su propio ramo eligiendo flores, envoltorios y tonalidades.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="portfolio-item reveal">
-          <div class="item-image-placeholder">
-            <span>PROYECTO 03 — SOCIAL</span>
+        <!-- Proyecto 3 -->
+        <a href="https://showroomejem.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+          <div class="project-img-wrapper">
+            <div class="project-overlay">VER SITIO WEB ↗</div>
+            <div class="project-badge">WEB DESIGN / SHOWROOM</div>
           </div>
-          <div class="item-info">
-            <h3>Cultura Costera</h3>
-            <span class="item-cat">Redes Sociales / 2026</span>
+          <div class="project-info">
+            <h3>Maison Showroom</h3>
+            <p>Tienda digital sobria y de alta gama para carteras de diseño. Enfoque editorial centrado en fotografía de producto, variantes de color y distinción visual.</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
-    <section id="about" class="about-section reveal">
-      <div class="about-container">
+    <!-- El Estudio (Desplegable Extenso) -->
+    <section id="about" class="about-section">
+      <div class="about-container reveal">
         <span class="section-number">04 — EL ESTUDIO</span>
-        <h2>Creatividad visual con base en Argentina.</h2>
-        <p>Squid Design Studio es una iniciativa independiente dedicada al diseño honesto, reflexivo y memorable. Creemos en los detalles, en las texturas que evocan recuerdos y en la potencia de una identidad bien construida.</p>
+        <h2 class="about-title">Donde la gráfica editorial se encuentra con el océano.</h2>
+        
+        <p class="about-lead">Squid Design Studio es un espacio independiente de diseño visual enfocado en crear identidades perdurables para proyectos con alma.</p>
+
+        <div id="history-content" class="history-expandable">
+          <p>Nuestra visión se nutre de la calidez de la arena, la profundidad del azul marino y la fuerza expresiva de la tinta orgánica. Nos alejamos de las modas pasajeras del marketing automatizado para volver a la esencia del diseño gráfico: composición, espacio blanco, equilibrio tipográfico y textura.</p>
+          <p>Cada marca que pasa por nuestro estudio es abordada como un objeto editorial único. Creemos en los proyectos que se toman el tiempo de cuidar sus detalles, que buscan comunicar con sutileza pero con convicción, y que entienden la identidad visual no como un simple logo, sino como una atmósfera completa.</p>
+          <p>Desde nuestro espacio de trabajo, diseñamos experiencias web y sistemas gráficos visualmente estimulantes, pensados para conectar de forma honesta con las personas que valoran la estética, el diseño independiente y la sofisticación contemporánea.</p>
+        </div>
+
+        <button id="toggle-history-btn" class="btn-history">
+          <span>LEER HISTORIA COMPLETA</span>
+        </button>
       </div>
     </section>
 
+    <!-- Contacto -->
     <section id="contact" class="contact-section reveal">
       <div class="contact-container">
+        <div class="ink-stamp">
+          <img src="assets/images/4.png" alt="Tinta">
+        </div>
         <span class="section-number">05 — CONTACTO</span>
         <h2 class="contact-title">HABLEMOS DE TU MARCA</h2>
-        <p class="contact-sub">¿Tienes un proyecto en mente? Escríbenos y trabajemos juntos en tu nueva identidad visual.</p>
+        <p class="contact-sub">¿Tienes un proyecto en mente? Cuéntanos tu idea y creemos juntos su universo visual.</p>
 
         <form name="contact" method="POST" data-netlify="true" class="contact-form">
           <div class="form-group">
-            <input type="text" name="name" placeholder="Tu Nombre" required>
+            <input type="text" name="name" placeholder="Tu Nombre / Nombre de tu marca" required>
           </div>
           <div class="form-group">
-            <input type="email" name="email" placeholder="Tu Email" required>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
           </div>
           <div class="form-group">
-            <textarea name="message" rows="4" placeholder="Cuéntanos brevemente sobre tu marca o proyecto..." required></textarea>
+            <textarea name="message" rows="4" placeholder="Cuéntanos brevemente sobre tu proyecto..." required></textarea>
           </div>
           <button type="submit" class="btn-primary btn-submit">ENVIAR MENSAJE</button>
         </form>
 
         <div class="direct-contact">
-          <p>O si prefieres, escríbenos directamente a:</p>
+          <p>Escríbenos directamente a:</p>
           <a href="mailto:squidstudio.contacto@gmail.com" class="email-link">squidstudio.contacto@gmail.com</a>
           <div class="social-links">
             <a href="https://www.instagram.com/squid.designstudio/" target="_blank" rel="noopener">Instagram: @squid.designstudio</a>
@@ -224,17 +259,25 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-brand">
-        <span class="brand-name">SQUID DESIGN STUDIO</span>
-        <p>Branding, Web & Social Media Design.</p>
+        <img src="assets/images/2.png" alt="Squid Logo" class="footer-logo">
+        <div>
+          <span class="brand-name-footer">SQUID DESIGN STUDIO</span>
+          <p>Branding, Web & Social Media Design.</p>
+        </div>
       </div>
       <div class="footer-meta">
         <p>&copy; 2026 Squid Design Studio. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
   <script src="script.js"></script>
 </body>
